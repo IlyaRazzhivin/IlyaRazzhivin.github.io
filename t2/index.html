@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Horizontal CSS Menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="site.css" type="text/css" media="screen">
+    <script type="text/javascript" src="mootools.js"></script>
+    <script type="text/javascript">
+        window.addEvent('domready', function(){
+            $$('#menu a').each(function(el) {
+                var fx = new Fx.Morph(el,{duration:700,transition:Fx.Transitions.Bounce.easeOut,link:'cancel'});
+                el.addEvents({
+                    'mouseenter': function() {fx.start({'padding-top':30, 'background-color':'#CCCCCC'});},
+                    'mouseleave': function() {fx.start({'padding-top':0});}
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li><a href="#">О компании</a></li>
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Производитель</a></li>
+        <li><a href="#">Клиенты</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">Контакты</a></li>
+    </ul>
+</div>
+</body>
+</html>
