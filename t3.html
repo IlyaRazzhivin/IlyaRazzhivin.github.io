@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="site3.css" type="text/css" media="screen">
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript">
-        var data = ["о компании", "Каталог", "Производительность", "Клиенты", "Услуги", "Контакты"];
-        var html = "&lt;ul>";
-        for (var i = 0; i &lt; data.length; i++) {
-            html += "&lt;li>&lt;a href='#'>" + data[i] + "</a></li>"
-        }
-        html += "</ul>";
-        document.getElementById("menu").innerHTML = html;
+        window.addEvent('domready', function(){
+            $$('#menu a').each(function(el) {
+                var fx = new Fx.Morph(el,{duration:700,transition:Fx.Transitions.Bounce.easeOut,link:'cancel'});
+                el.addEvents({
+                    'mouseenter': function() {fx.start({'padding-top':30, 'background-color':'#CCCCCC'});},
+                    'mouseleave': function() {fx.start({'padding-top':0});}
+                });
+            });
+        });
     </script>
 </head>
 <body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Horizontal CSS Menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="site2.css" type="text/css" media="screen">
+    <script type="text/javascript" src="mootools.js"></script>
+    <script type="text/javascript">
+        window.addEvent('domready', function(){
+            $$('#menu a').each(function(el) {
+                var fx = new Fx.Morph(el,{duration:700,transition:Fx.Transitions.Bounce.easeOut,link:'cancel'});
+                el.addEvents({
+                    'mouseenter': function() {fx.start({'padding-top':30, 'background-color':'#CCCCCC'});},
+                    'mouseleave': function() {fx.start({'padding-top':0});}
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="menu">
+    <ul>
+      <li><a href="#">О компании</a></li>
+              <li><a href="#">Каталог</a></li>
+              <li><a href="#">Производитель</a></li>
+              <li><a href="#">Клиенты</a></li>
+              <li><a href="#">Услуги</a></li>
+              <li><a href="#">Контакты</a></li>
+    </ul>
+</div>
+</body>
+</html>
+
+--------------------------
+
+* {
+	padding: 0;
+	margin: 0;
+	}
+#menu{
+	margin:0 auto;
+    width:995px;
+	}
+#menu ul {
+	    list-style:none;
+    	width:100%;
+    	height:45px;
+    	background:#EDEDED;
+    	border-radius: 5px 5px 5px 5px;
+    	box-shadow: 0px 7px 0px 0px #CCCCCC;
+	}
+#menu li {
+	float:left;
+    border-right:1px solid #E4E4E4;
+	}
+#menu li a {
+	display:block;
+    	height:45px;
+    	padding:0 35px;
+    	float:left;
+        color: #000000;
+    	font:90%/40px Verdana, Geneva, sans-serif;
+    	text-decoration:none;
+    	text-align:center;
+	}
